@@ -1,4 +1,5 @@
 import type { Product } from '../../types/Product'
+import { useState } from 'react'
 import styles from './ProductModal.module.scss'
 
 interface ProductModalProps {
@@ -7,40 +8,50 @@ interface ProductModalProps {
 }
 
 export function ProductModal({ product, onClose }: ProductModalProps) {
-  return (
-    <div className={styles.overlay} onClick={onClose}>
-      <dialog className={styles.modal} open onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeButton} type="button" onClick={onClose}>
-        ×
-        </button>
+    const [quantity, setQuantity] = useState(1)
 
-        <img src={product.photo} alt={product.productName} />
+    function decreaseQuantity() {
+        setQuantity((current) => Math.max(1, current - 1))
+    }
 
-        <div className={styles.content}>
-            <h2>{product.productName}</h2>
+    function increaseQuantity() {
+        setQuantity((current) => current + 1)
+    }
 
-            <strong>
-                {product.price.toLocaleString('pt-BR', {
-                style: 'currency',
-                currency: 'BRL',
-                })}
-            </strong>
+    return (
+        <div className={styles.overlay} onClick={onClose}>
+        <dialog className={styles.modal} open onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} type="button" onClick={onClose}>
+            ×
+            </button>
 
-            <p>{product.descriptionShort}</p>
+            <img src={product.photo} alt={product.productName} />
 
-            <div className={styles.actions}>
-                <div className={styles.quantity}>
-                    <button type="button">−</button>
-                    <span>01</span>
-                    <button type="button">+</button>
+            <div className={styles.content}>
+                <h2>{product.productName}</h2>
+
+                <strong>
+                    {product.price.toLocaleString('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                    })}
+                </strong>
+
+                <p>{product.descriptionShort}</p>
+
+                <div className={styles.actions}>
+                    <div className={styles.quantity}>
+                        <button type="button" onClick={decreaseQuantity}>−</button>
+                        <span>{String(quantity).padStart(2, '0')}</span>
+                        <button type="button" onClick={increaseQuantity}>+</button>
+                    </div>
+
+                    <button className={styles.buyButton} type="button">
+                        Comprar
+                    </button>
                 </div>
-
-                <button className={styles.buyButton} type="button">
-                    Comprar
-                </button>
             </div>
+        </dialog>
         </div>
-      </dialog>
-    </div>
-  )
+    )
 }
