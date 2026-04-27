@@ -1,0 +1,40 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  background: #f4f4f4;
+  padding-top: 48px;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 32px;
+
+  h3,
+  h4 {
+    margin-bottom: 12px;
+    color: $text-dark;
+  }
+
+  p,
+  a {
+    display: block;
+    font-size: 14px;
+    color: $text-muted;
+    margin-bottom: 8px;
+  }
+}
+
+.bottom {
+  border-top: 1px solid #ddd;
+  padding: 18px;
+  text-align: center;
+
+  p {
+    font-size: 13px;
+    color: $text-muted;
+  }
+}
