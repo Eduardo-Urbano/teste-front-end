@@ -3,12 +3,14 @@ import { ProductCard } from '../ProductCard/ProductCard'
 import { getProducts } from '../../services/productService'
 import type { Product } from '../../types/Product'
 import styles from './ProductSection.module.scss'
+import { ProductModal } from '../ProductModal/ProductModal'
 
 export function ProductSection() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const carouselRef = useRef<HTMLDivElement>(null)
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
 
   useEffect(() => {
     async function loadProducts() {
@@ -82,7 +84,7 @@ export function ProductSection() {
             <ProductCard
               key={product.productName}
               product={product}
-              onClick={() => console.log(product)}
+              onClick={setSelectedProduct}
             />
           ))}
         </div>
@@ -96,6 +98,12 @@ export function ProductSection() {
           ›
         </button>
       </div>
+      {selectedProduct && (
+        <ProductModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </section>
   )
 }

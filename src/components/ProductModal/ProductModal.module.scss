@@ -1,0 +1,126 @@
+@use '../../styles/variables' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.62);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal {
+  position: relative;
+  width: min(760px, 100%);
+  min-height: 260px;
+  border: 3px solid #00a7ff;
+  background: $white;
+  padding: 38px 56px;
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 48px;
+
+  &::backdrop {
+    display: none;
+  }
+
+  img {
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+    align-self: center;
+    justify-self: center;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 22px;
+  color: #707070;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #3f3f40;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  strong {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3f3f40;
+    margin-bottom: 18px;
+  }
+
+  p {
+    max-width: 280px;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #777;
+    margin-bottom: 4px;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.quantity {
+  width: 92px;
+  height: 36px;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    width: 28px;
+    height: 100%;
+    font-size: 18px;
+    color: #3f3f40;
+  }
+
+  span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3f3f40;
+  }
+}
+
+.buyButton {
+  width: 175px;
+  height: 36px;
+  border-radius: 4px;
+  background: $yellow;
+  color: #271c47;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .modal {
+    grid-template-columns: 1fr;
+    padding: 32px 24px;
+    gap: 20px;
+
+    img {
+      width: 180px;
+      height: 180px;
+    }
+  }
+}
