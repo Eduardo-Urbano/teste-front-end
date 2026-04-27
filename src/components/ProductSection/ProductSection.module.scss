@@ -1,0 +1,89 @@
+@use '../../styles/variables' as *;
+
+.section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 32px 48px;
+
+  h2 {
+    color: $primary-blue;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+  border: 1px solid $border;
+
+  button {
+    width: 180px;
+    height: 42px;
+    border-right: 1px solid $border;
+    font-size: 14px;
+    color: $text-muted;
+    text-transform: uppercase;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:first-child {
+      color: $primary-blue;
+      font-weight: 700;
+    }
+  }
+}
+
+.carouselWrapper {
+  position: relative;
+}
+
+.grid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 8px 4px 24px;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.arrow {
+  position: absolute;
+  top: 45%;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: $white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  color: $text-muted;
+  font-size: 28px;
+  line-height: 1;
+
+  &:hover {
+    color: $primary-blue;
+  }
+}
+
+.arrowLeft {
+  left: -16px;
+}
+
+.arrowRight {
+  right: -16px;
+}
+
+.status {
+  text-align: center;
+  padding: 40px;
+  color: $text-muted;
+}

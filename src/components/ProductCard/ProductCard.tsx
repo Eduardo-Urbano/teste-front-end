@@ -9,21 +9,21 @@ interface ProductCardProps {
 export function ProductCard({ product, onClick }: ProductCardProps) {
   return (
     <article className={styles.card}>
-      <button type="button" onClick={() => onClick(product)}>
+      <button className={styles.button} type="button" onClick={() => onClick(product)}>
         <img src={product.photo} alt={product.productName} />
 
         <h3>{product.productName}</h3>
 
         <p className={styles.description}>{product.descriptionShort}</p>
 
-        <strong>
+        <strong className={styles.price}>
           {product.price.toLocaleString('pt-BR', {
             style: 'currency',
             currency: 'BRL',
           })}
         </strong>
 
-        <span>Comprar</span>
+        <span className={styles.buyButton}>Comprar</span>
       </button>
     </article>
   )
