@@ -11,16 +11,20 @@ function App() {
   return (
     <>
       <Header />
+
       <main>
         <HeroBanner />
         <CategoryMenu />
         <ProductSection />
         <PartnerSection />
+        <ProductSection />
+        <PartnerSection />
         <BrandCarousel />
         <ProductSection />
         <Newsletter />
-        <Footer />
       </main>
+
+      <Footer />
     </>
   )
 }

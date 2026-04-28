@@ -15,10 +15,11 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
         className={styles.button}
         type="button"
         onClick={() => onClick(product)}
+        aria-label={`Ver detalhes de ${product.productName}`}
       >
         <img src={product.photo} alt={product.productName} />
 
-        <h3>{product.descriptionShort}</h3>
+        <h3>{product.descriptionShort || product.productName}</h3>
 
         <span className={styles.oldPrice}>
           {oldPrice.toLocaleString('pt-BR', {

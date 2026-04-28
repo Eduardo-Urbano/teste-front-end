@@ -1,11 +1,12 @@
 import styles from './Footer.module.scss'
+import { Logo } from '../Logo/Logo'
 
 export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.brand}>
-          <h3>Econverse</h3>
+          <Logo/>
 
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.

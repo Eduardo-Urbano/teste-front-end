@@ -10,6 +10,7 @@ import {
   Package,
 } from 'lucide-react'
 import styles from './Header.module.scss'
+import { Logo } from '../Logo/Logo'
 
 export function Header() {
   return (
@@ -21,7 +22,7 @@ export function Header() {
       </div>
 
       <div className={styles.mainHeader}>
-        <div className={styles.logo}>econverse</div>
+        <div className={styles.logo}><Logo /></div>
 
         <label className={styles.search}>
           <span>Buscar produto</span>

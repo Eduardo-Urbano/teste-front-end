@@ -31,9 +31,10 @@ export function CategoryMenu() {
               key={category.name}
               className={`${styles.card} ${index === 0 ? styles.active : ''}`}
               type="button"
+              aria-label={`Categoria ${category.name}`}
             >
               <div className={styles.icon}>
-                <Icon size={34} />
+                <Icon size={34} aria-hidden="true" />
               </div>
 
               <span>{category.name}</span>

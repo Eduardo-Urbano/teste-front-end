@@ -1,0 +1,28 @@
+@use '../../styles/variables' as *;
+
+.logo {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.ec {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #f7ca11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  margin-right: -2px;
+  z-index: 2;
+}
+
+.onverse {
+  color: #271c47;
+  z-index: 4;
+  margin-left: -3px;
+}

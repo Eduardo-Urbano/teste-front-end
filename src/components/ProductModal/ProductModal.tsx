@@ -19,16 +19,21 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
     }
 
     return (
-        <div className={styles.overlay} onClick={onClose}>
-        <dialog className={styles.modal} open onClick={(e) => e.stopPropagation()}>
-            <button className={styles.closeButton} type="button" onClick={onClose}>
-            ×
+        <div className={styles.overlay} onClick={onClose} role="presentation">
+        <dialog className={styles.modal} open aria-labelledby="modal-product-title" onClick={(e) => e.stopPropagation()}>
+            <button 
+                className={styles.closeButton} 
+                type="button" 
+                onClick={onClose} 
+                aria-label="Fechar modal"
+            >
+                ×
             </button>
 
             <img src={product.photo} alt={product.productName} />
 
             <div className={styles.content}>
-                <h2>{product.productName}</h2>
+                <h2 id="modal-product-title">{product.productName}</h2>
 
                 <strong>
                     {product.price.toLocaleString('pt-BR', {
@@ -41,9 +46,17 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
 
                 <div className={styles.actions}>
                     <div className={styles.quantity}>
-                        <button type="button" onClick={decreaseQuantity}>−</button>
-                        <span>{String(quantity).padStart(2, '0')}</span>
-                        <button type="button" onClick={increaseQuantity}>+</button>
+                        <button type="button" onClick={decreaseQuantity} aria-label="Diminuir quantidade">
+                            −
+                        </button>
+
+                        <span aria-label={`Quantidade selecionada: ${quantity}`}>
+                        {String(quantity).padStart(2, '0')}
+                        </span>
+
+                        <button type="button" onClick={increaseQuantity} aria-label="Aumentar quantidade">
+                            +
+                        </button>
                     </div>
 
                     <button className={styles.buyButton} type="button">

@@ -9,7 +9,9 @@ export function HeroBanner() {
       <div className={styles.content}>
         <h1>Venha conhecer nossas promoções</h1>
         <p>50% Off nos produtos</p>
-        <a href="#produtos">Ver produto</a>
+        <a href="#produtos" aria-label="Ver produtos em promoção">
+          Ver produto
+        </a>
       </div>
     </section>
   )

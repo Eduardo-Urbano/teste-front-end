@@ -53,19 +53,19 @@ export function ProductSection() {
   }
 
   return (
-    <section className={styles.section} id="produtos">
+    <section className={styles.section} id="produtos" aria-labelledby="produtos-title">
       <div className={styles.titleWrapper}>
-        <h2>Produtos relacionados</h2>
+        <h2 id="produtos-title">Produtos relacionados</h2>
       </div>
 
-      <div className={styles.tabs}>
+      <nav className={styles.tabs} aria-label="Categorias de produtos">
         <button type="button">Celular</button>
         <button type="button">Acessórios</button>
         <button type="button">Tablets</button>
         <button type="button">Notebooks</button>
         <button type="button">TVs</button>
         <button type="button">Ver todos</button>
-      </div>
+      </nav>
 
       <div className={styles.carouselWrapper}>
         <button
@@ -81,6 +81,7 @@ export function ProductSection() {
           ref={carouselRef}
           className={styles.grid}
           onWheel={handleWheel}
+          aria-label="Lista de produtos"
         >
           {products.map((product) => (
             <ProductCard

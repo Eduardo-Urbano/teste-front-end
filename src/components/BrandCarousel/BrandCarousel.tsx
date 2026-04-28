@@ -1,6 +1,7 @@
 import styles from './BrandCarousel.module.scss'
+import { Logo } from '../Logo/Logo'
 
-const brands = ['Logo', 'Logo', 'Logo', 'Logo', 'Logo']
+const brands = [1, 2, 3, 4, 5]
 
 export function BrandCarousel() {
   return (
@@ -8,9 +9,11 @@ export function BrandCarousel() {
       <h2>Navegue por marcas</h2>
 
       <div className={styles.carousel}>
-        {brands.map((brand, index) => (
-          <button key={index} className={styles.brandCard} type="button">
-            <div className={styles.logoCircle}>{brand}</div>
+        {brands.map((brand) => (
+          <button key={brand} className={styles.brandCard} type="button">
+            <div className={styles.logoCircle}>
+              <Logo />
+            </div>
           </button>
         ))}
       </div>
