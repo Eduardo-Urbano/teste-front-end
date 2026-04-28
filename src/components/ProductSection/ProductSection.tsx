@@ -54,7 +54,9 @@ export function ProductSection() {
 
   return (
     <section className={styles.section} id="produtos">
-      <h2>Produtos relacionados</h2>
+      <div className={styles.titleWrapper}>
+        <h2>Produtos relacionados</h2>
+      </div>
 
       <div className={styles.tabs}>
         <button type="button">Celular</button>

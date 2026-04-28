@@ -1,12 +1,23 @@
+import {
+  CreditCard,
+  Heart,
+  Search,
+  ShieldCheck,
+  Truck,
+  User,
+  ShoppingCart,
+  Crown,
+  Package,
+} from 'lucide-react'
 import styles from './Header.module.scss'
 
 export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.topBar}>
-        <span>Compra 100% segura</span>
-        <span>Frete grátis acima de R$ 200</span>
-        <span>Parcele suas compras</span>
+        <span><ShieldCheck size={16} /> Compra <strong>100% segura</strong></span>
+        <span><Truck size={16} /> <strong>Frete grátis</strong> acima de R$ 200</span>
+        <span><CreditCard size={16} /> <strong>Parcele</strong> suas compras</span>
       </div>
 
       <div className={styles.mainHeader}>
@@ -15,12 +26,14 @@ export function Header() {
         <label className={styles.search}>
           <span>Buscar produto</span>
           <input type="text" placeholder="O que você está buscando?" />
+          <Search size={20} />
         </label>
 
         <nav className={styles.actions} aria-label="Ações do usuário">
-          <button type="button">♡</button>
-          <button type="button">👤</button>
-          <button type="button">🛒</button>
+          <button type="button" aria-label="Pedidos"><Package size={24} /></button>
+          <button type="button" aria-label="Favoritos"><Heart size={24} /></button>
+          <button type="button" aria-label="Minha conta"><User size={24} /></button>
+          <button type="button" aria-label="Carrinho"><ShoppingCart size={24} /></button>
         </nav>
       </div>
 
@@ -31,6 +44,7 @@ export function Header() {
         <a href="#">Moda</a>
         <a href="#">Lançamentos</a>
         <a href="#">Ofertas do dia</a>
+        <a href="#"><Crown size={16} /> Assinatura</a>
       </nav>
     </header>
   )
