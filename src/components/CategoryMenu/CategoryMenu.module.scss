@@ -1,7 +1,7 @@
 @use '../../styles/variables' as *;
 
 .categoryMenu {
-  padding: 32px 0;
+  padding: 34px 0 26px;
   background: $white;
 }
 
@@ -11,12 +11,12 @@
   padding: 0 32px;
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .card {
-  width: 128px;
+  width: 120px;
   height: 128px;
   border-radius: 10px;
   background: #f4f4f4;
@@ -28,26 +28,54 @@
   transition: 0.2s ease;
 
   &:hover {
-    border: 1px solid $primary-blue;
-    background: #ffffff;
+    transform: translateY(-2px);
   }
 
   span {
     font-size: 13px;
-    color: $text-dark;
+    color: #3f3f40;
     font-weight: 500;
     text-align: center;
   }
 }
 
+.active {
+  background: $white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+  span {
+    color: $primary-blue;
+    font-weight: 700;
+  }
+
+  .icon {
+    color: $primary-blue;
+  }
+}
+
 .icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   background: $white;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $primary-blue;
-  font-size: 20px;
+  color: #9f9f9f;
+}
+
+@media (max-width: 768px) {
+  .container {
+    gap: 10px;
+  }
+
+  .card {
+    width: 100px;
+    height: 112px;
+  }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+  }
 }

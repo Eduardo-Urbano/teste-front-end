@@ -1,55 +1,97 @@
 @use '../../styles/variables' as *;
 
 .newsletter {
-  background: $primary-blue;
-  padding: 42px 32px;
+  background: #271c47;
+  padding: 40px 32px;
   margin-top: 60px;
 }
 
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 360px 1fr;
   align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
+  gap: 48px;
 }
 
 .text {
   color: $white;
 
   h2 {
-    font-size: 26px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 1.15;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
   }
 
   p {
     font-size: 14px;
+    line-height: 1.45;
+    color: #ffffff;
   }
 }
 
 .form {
+  width: 100%;
+}
+
+.fields {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
 
   input {
-    width: 220px;
+    flex: 1;
     height: 44px;
-    padding: 0 14px;
+    padding: 0 18px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     outline: none;
+    font-size: 13px;
+
+    &::placeholder {
+      color: #9f9f9f;
+    }
   }
 
   button {
-    width: 140px;
+    width: 150px;
     height: 44px;
-    border-radius: 4px;
+    border-radius: 6px;
     background: $yellow;
     color: #271c47;
+    font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
+  }
+}
+
+.terms {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $white;
+  font-size: 12px;
+
+  input {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .fields {
+    flex-direction: column;
+
+    button {
+      width: 100%;
+    }
   }
 }

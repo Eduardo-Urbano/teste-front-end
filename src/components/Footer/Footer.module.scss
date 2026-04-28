@@ -2,39 +2,120 @@
 
 .footer {
   background: #f4f4f4;
-  padding-top: 48px;
+  padding-top: 56px;
 }
 
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 32px 40px;
+  padding: 0 32px 48px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 32px;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 42px;
 
-  h3,
-  h4 {
-    margin-bottom: 12px;
-    color: $text-dark;
+  h3 {
+    font-size: 28px;
+    color: $yellow;
+    margin-bottom: 16px;
   }
 
-  p,
+  h4 {
+    font-size: 16px;
+    color: #3f3f40;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #808080;
+    margin-bottom: 18px;
+    max-width: 240px;
+  }
+
   a {
     display: block;
     font-size: 14px;
-    color: $text-muted;
-    margin-bottom: 8px;
+    color: #808080;
+    margin-bottom: 10px;
+
+    &:hover {
+      color: $primary-blue;
+    }
+  }
+}
+
+.brand {
+  padding-right: 24px;
+  border-right: 1px solid #dedede;
+}
+
+.social {
+  display: flex;
+  gap: 14px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: $white;
+    color: #3f3f40;
+    margin-bottom: 0;
+
+    &:hover {
+      color: $primary-blue;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    &:nth-child(2) svg {
+      fill: currentColor;
+      stroke: none;
+    }
   }
 }
 
 .bottom {
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #dedede;
   padding: 18px;
   text-align: center;
 
   p {
     font-size: 13px;
-    color: $text-muted;
+    color: #808080;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .brand {
+    grid-column: span 2;
+    border-right: none;
+    padding-right: 0;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #dedede;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .brand {
+    grid-column: span 1;
   }
 }
