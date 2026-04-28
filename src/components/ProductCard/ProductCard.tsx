@@ -7,14 +7,25 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, onClick }: ProductCardProps) {
+  const oldPrice = product.price * 1.07
+
   return (
     <article className={styles.card}>
-      <button className={styles.button} type="button" onClick={() => onClick(product)}>
+      <button
+        className={styles.button}
+        type="button"
+        onClick={() => onClick(product)}
+      >
         <img src={product.photo} alt={product.productName} />
 
-        <h3>{product.productName}</h3>
+        <h3>{product.descriptionShort}</h3>
 
-        <p className={styles.description}>{product.descriptionShort}</p>
+        <span className={styles.oldPrice}>
+          {oldPrice.toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          })}
+        </span>
 
         <strong className={styles.price}>
           {product.price.toLocaleString('pt-BR', {
@@ -22,6 +33,12 @@ export function ProductCard({ product, onClick }: ProductCardProps) {
             currency: 'BRL',
           })}
         </strong>
+
+        <p className={styles.installments}>
+          ou 2x de R$ 49,95 sem juros
+        </p>
+
+        <span className={styles.shipping}>Frete grátis</span>
 
         <span className={styles.buyButton}>Comprar</span>
       </button>

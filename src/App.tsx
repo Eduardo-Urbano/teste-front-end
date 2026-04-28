@@ -7,7 +7,6 @@ import { BrandCarousel } from './components/BrandCarousel/BrandCarousel'
 import { Newsletter } from './components/Newsletter/Newsletter'
 import { Footer } from './components/Footer/Footer'
 
-
 function App() {
   return (
     <>
